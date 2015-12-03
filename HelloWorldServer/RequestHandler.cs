@@ -14,7 +14,6 @@ namespace HelloWorldServer
         public void Handle(Request message)
         {
             LogManager.GetLogger("RequestHandler").Info(message.SaySomething);
-            //throw new Exception("Booyah!");
         }
     }
 
@@ -24,6 +23,8 @@ namespace HelloWorldServer
 
         public void Handle(RequestWithResponse message)
         {
+            LogManager.GetLogger("RequestHandler").Info(message.SaySomething);
+            Console.WriteLine(message.SaySomething);
             Bus.Return(message.SaySomething.Length % 2);
         }
     }
